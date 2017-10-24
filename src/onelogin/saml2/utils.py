@@ -773,7 +773,7 @@ class OneLogin_Saml2_Utils(object):
 
     @staticmethod
     @return_false_on_exception
-    def validate_sign(xml, cert=None, fingerprint=None, fingerprintalg='sha1', validatecert=False, debug=False, xpath=None, multicerts=None):
+    def validate_sign(xml, cert=None, fingerprint=None, fingerprintalg='sha1', validatecert=False, debug=True, xpath=None, multicerts=None):
         """
         Validates a signature (Message or Assertion).
 
@@ -804,6 +804,7 @@ class OneLogin_Saml2_Utils(object):
         :param raise_exceptions: Whether to return false on failure or raise an exception
         :type raise_exceptions: Boolean
         """
+        import pdb ; pdb.set_trace()
         if xml is None or xml == '':
             raise Exception('Empty string supplied as input')
 
@@ -923,6 +924,7 @@ class OneLogin_Saml2_Utils(object):
         :param raise_exceptions: Whether to return false on failure or raise an exception
         :type raise_exceptions: Boolean
         """
+        import pdb ; pdb.set_trace()
         if (cert is None or cert == '') and fingerprint:
             x509_certificate_nodes = OneLogin_Saml2_XML.query(signature_node, '//ds:Signature/ds:KeyInfo/ds:X509Data/ds:X509Certificate')
             if len(x509_certificate_nodes) > 0:
