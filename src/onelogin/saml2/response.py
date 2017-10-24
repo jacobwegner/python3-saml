@@ -171,11 +171,13 @@ class OneLogin_Saml2_Response(object):
                         if recipient and current_url not in recipient:
                             continue
                         nooa = sc_data.get('NotOnOrAfter', None)
+                        import pdb ; pdb.set_trace()
                         if nooa:
                             parsed_nooa = OneLogin_Saml2_Utils.parse_SAML_to_time(nooa)
                             if parsed_nooa <= OneLogin_Saml2_Utils.now():
                                 continue
                         nb = sc_data.get('NotBefore', None)
+                        import pdb ; pdb.set_trace()
                         if nb:
                             parsed_nb = OneLogin_Saml2_Utils.parse_SAML_to_time(nb)
                             if parsed_nb > OneLogin_Saml2_Utils.now():
